@@ -2,6 +2,8 @@ $blue: #3C43A7;
 $deepblue: #22299B;
 $pink: #F82564;
 $white: #FFFFFF;
+$button--width: 50px;
+$button--height: 50px;
 
 body {
   background-color: $white;
@@ -54,7 +56,7 @@ body {
 }
 
 .calc__keyboard__ac {
-  height: 50px;
+  height: $button--height;
   display: flex;
   align-items: center;
   padding-left: 10px;
@@ -70,8 +72,8 @@ body {
 .button--blue {
   background-color: $blue;
   color: $white;
-  width: 50px;
-  height: 50px;
+  width: $button--width;
+  height: $button--height;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -80,8 +82,8 @@ body {
 .button--deepblue {
   background-color: $deepblue;
   color: $white;
-  width: 50px;
-  height: 50px;
+  width: $button--width;
+  height: $button--height;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,8 +92,8 @@ body {
 .button--pink {
   background-color: $pink;
   color: $white;
-  width: 50px;
-  height: 50px;
+  width: $button--width;
+  height: $button--height;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,8 +102,8 @@ body {
 .button--blue--big {
   background-color: $blue;
   color: $white;
-  width: 150px;
-  height: 50px;
+  width: $button--width * 3;
+  height: $button--height;
   display: flex;
   justify-content: center;
   align-items: center;
