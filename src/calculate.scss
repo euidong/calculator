@@ -1,0 +1,120 @@
+$blue: #3C43A7;
+$deepblue: #22299B;
+$pink: #F82564;
+$white: #FFFFFF;
+
+body {
+  background-color: $white;
+}
+
+.App {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 320px;
+}
+
+.calc {
+  display: flex;
+  flex-direction: column; 
+}
+
+.calc__title {
+  background-color: $pink;
+  padding-left: 10px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  color: $white;
+}
+
+.calc__score {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 60px;
+  padding-right: 18px;
+  border-left: 1px solid whitesmoke;
+  border-right: 1px solid whitesmoke;
+}
+
+.calc__keyboard {
+  display: flex;
+}
+
+.calc__keyboard__main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.calc__keyboard__operator {
+  display: flex;
+  flex-direction: column; 
+}
+
+.calc__keyboard__ac {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  background-color: $blue;
+  color: $white;
+}
+
+.calc__keyboard__number__line {
+  display: flex;
+  flex-direction: row;
+}
+
+.button--blue {
+  background-color: $blue;
+  color: $white;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button--deepblue {
+  background-color: $deepblue;
+  color: $white;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button--pink {
+  background-color: $pink;
+  color: $white;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button--blue--big {
+  background-color: $blue;
+  color: $white;
+  width: 150px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button--blue:hover {
+  opacity: 0.7;
+}
+
+.button--blue--big:hover {
+  opacity: 0.7;
+}
+
+.button:active {
+  opacity: 0.5;
+}
