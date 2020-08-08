@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Calc () {
+function Calc ({ setHistories }) {
   const [score, setScore] = useState('0');
   const [prevScore, setPrevScore] = useState(null);
   const [_, setOperator] = useState(null);
@@ -24,22 +24,28 @@ function Calc () {
     setOperator(prevOper => {
       if (curOper === '=') {
         if (prevOper) {
+          let result;
           switch(prevOper) {
             case '+':
-              setScore(score => Number(prevScore) + Number(score));
+              setScore(score =>{ return result = Number(prevScore) + Number(score); });
               break;
             case '-':
-              setScore(score => Number(prevScore) - Number(score));
+              setScore(score => { return result = Number(prevScore) - Number(score); });
               break;
             case '×':
-              setScore(score => Number(prevScore) * Number(score));
+              setScore(score => { return result = Number(prevScore) * Number(score); });
               break;
             case '÷':
-              setScore(score => Number(prevScore) /  Number(score));
+              setScore(score => { return result = Number(prevScore) /  Number(score); });
               break;
             default:
               break;
           }
+          setHistories((histories) => {
+            const newHistories = [...histories];
+            newHistories.push(`${prevScore} ${prevOper} ${score} = ${result}`);
+            return newHistories;
+          })
           setPrevScore(null);
         } 
         return null;

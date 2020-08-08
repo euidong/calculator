@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './calculate.scss';
 import Calc from './Calc';
+import History from './History';
 
 function App() {
+  const [histories, setHistories] = useState([]);
   return (
     <div className="App">
-      <Calc />
+      <div className="Container">
+        <Calc setHistories={setHistories} />
+        <History histories={histories} />
+      </div>
     </div>
   );
 }

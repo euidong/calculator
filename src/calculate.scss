@@ -17,6 +17,22 @@ body {
   min-width: 320px;
 }
 
+.Container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.history__title {
+  padding-left: 10px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.history__table {
+  padding-left: 10px;
+}
+
 .calc {
   display: flex;
   flex-direction: column; 
