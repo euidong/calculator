@@ -2,11 +2,14 @@ $blue: #3C43A7;
 $deepblue: #22299B;
 $pink: #F82564;
 $white: #FFFFFF;
-$button--width: 50px;
-$button--height: 50px;
+
+$button--width: 100px;
+$button--height: 100px;
+$border--color: whitesmoke;
 
 body {
   background-color: $white;
+  font-size: 30px;
 }
 
 .App {
@@ -23,14 +26,22 @@ body {
   align-items: flex-start;
 }
 
+.history {
+  width: $button--width * 4;
+  height: 650px;
+  overflow: scroll;
+}
+
 .history__title {
-  padding-left: 10px;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-left: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: $blue;
+  color: white;
 }
 
 .history__table {
-  padding-left: 10px;
+  padding-left: 20px;
 }
 
 .calc {
@@ -40,9 +51,9 @@ body {
 
 .calc__title {
   background-color: $pink;
-  padding-left: 10px;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-left: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   color: $white;
 }
 
@@ -50,10 +61,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  height: 60px;
-  padding-right: 18px;
-  border-left: 1px solid whitesmoke;
-  border-right: 1px solid whitesmoke;
+  height: 100px;
+  width: $button--width * 4;
+  padding-right: 38px;
+  padding-left: 38px;
+  box-sizing: border-box;
+  border-left: 1px solid $border--color;
+  border-right: 1px solid $border--color;
 }
 
 .calc__keyboard {
@@ -75,9 +89,10 @@ body {
   height: $button--height;
   display: flex;
   align-items: center;
-  padding-left: 10px;
+  padding-left: 20px;
   background-color: $blue;
   color: $white;
+  border-bottom: 1px solid $deepblue;
 }
 
 .calc__keyboard__number__line {

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 function Calc ({ setHistories }) {
   const [score, setScore] = useState('0');
   const [prevScore, setPrevScore] = useState(null);
-  const [_, setOperator] = useState(null);
+  const [operator, setOperator] = useState(null);
   const [willClean, setWillClean] = useState(false);
 
   const onNumberClick = (value) => {
@@ -21,39 +21,38 @@ function Calc ({ setHistories }) {
 
   const onOperatorClick = (curOper) => {
     setWillClean(true);
-    setOperator(prevOper => {
-      if (curOper === '=') {
-        if (prevOper) {
-          let result;
-          switch(prevOper) {
-            case '+':
-              setScore(score =>{ return result = Number(prevScore) + Number(score); });
-              break;
-            case '-':
-              setScore(score => { return result = Number(prevScore) - Number(score); });
-              break;
-            case '×':
-              setScore(score => { return result = Number(prevScore) * Number(score); });
-              break;
-            case '÷':
-              setScore(score => { return result = Number(prevScore) /  Number(score); });
-              break;
-            default:
-              break;
-          }
-          setHistories((histories) => {
-            const newHistories = [...histories];
-            newHistories.push(`${prevScore} ${prevOper} ${score} = ${result}`);
-            return newHistories;
-          })
-          setPrevScore(null);
-        } 
-        return null;
-      } else {
-        setPrevScore(score);
-        return curOper;
+    if (curOper === '=') {
+      if (operator) {
+        let result;
+        switch(operator) {
+          case '+':
+            result = Number(prevScore) + Number(score);
+            break;
+          case '-':
+            result = Number(prevScore) - Number(score);
+            break;
+          case '×':
+            result = Number(prevScore) * Number(score);
+            break;
+          case '÷':
+            result = Number(prevScore) /  Number(score);
+            break;
+          default:
+            break;
+        }
+        setHistories((histories) => {
+          const newHistories = [...histories];
+          newHistories.unshift(`${prevScore} ${operator} ${score} = ${result}`);
+          return newHistories;
+        });
+        setScore(result);
+        setPrevScore(null);
       }
-    });
+      setOperator(null);
+    } else {
+      setPrevScore(score);
+      setOperator(curOper);
+    }
   };
 
   const onACClick = () => {
@@ -73,15 +72,15 @@ function Calc ({ setHistories }) {
       <div className="calc__keyboard">
         <div className="calc__keyboard__main">
           <div className="button calc__keyboard__ac" onClick={onACClick}>AC</div>
-          <div classsName="calc__keyboard__number">
+          <div className="calc__keyboard__number">
             {
               new Array(3).fill().map((_, line) => {
                 return (
-                  <div className="calc__keyboard__number__line">
+                  <div key={line} className="calc__keyboard__number__line">
                     { 
                       new Array(3).fill().map((_, idx) => {
                         const num = line * 3 + idx + 1;
-                        return (<div className="button button--blue" onClick={() => onNumberClick(num.toString())}>{num}</div>)
+                        return (<div key={num} className="button button--blue" onClick={() => onNumberClick(num.toString())}>{num}</div>)
                       })
                     }
                   </div>
